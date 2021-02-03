@@ -11,16 +11,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bc7889a8-8161-4d74-9759-c56bf36180b0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/images/favicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/include/_navbar.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/include/_footer.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/home.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/layout.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layout.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +169,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612350454451</updated>
-      <workItem from="1612350455602" duration="10399000" />
+      <workItem from="1612350455602" duration="11360000" />
     </task>
     <servers />
   </component>
