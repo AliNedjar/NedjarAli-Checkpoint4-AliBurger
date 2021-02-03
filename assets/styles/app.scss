@@ -1,11 +1,11 @@
 @import 'variables.scss';
-
+@import "~bootstrap/scss/bootstrap";
 * {
 
 }
 
 body {
     margin: 0;
-    background-color: red;
+    background-color: white;
     font-family: $font-title;
 }
