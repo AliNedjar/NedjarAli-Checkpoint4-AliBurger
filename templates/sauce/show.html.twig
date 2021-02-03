@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sauce{% endblock %}
+
+{% block body %}
+    <h1>Sauce {{ sauce.name }}</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Origine</th>
+            <td>{{ sauce.Origin }}</td>
+        </tr>
+        <tr>
+            <th>Ingrédients</th>
+            <td>{{ sauce.Ingredient }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('sauces') }}">Retour à la liste</a>
+
+{% endblock %}

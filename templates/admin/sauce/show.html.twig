@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Sauce{% endblock %}
+{% block title %}Sauce Admin{% endblock %}
 
 {% block body %}
-    <h1>Sauce</h1>
+    <h1>Sauce {{ sauce.name }}</h1>
 
     <table class="table">
         <tbody>
@@ -26,9 +26,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('sauce_index') }}">back to list</a>
+    <a href="{{ path('admin_sauce_index') }}">back to list</a>
 
-    <a href="{{ path('sauce_edit', {'id': sauce.id}) }}">edit</a>
+    <a href="{{ path('admin_sauce_edit', {'id': sauce.id}) }}">edit</a>
 
-    {{ include('sauce/_delete_form.html.twig') }}
+    {{ include('admin/sauce/_delete_form.html.twig') }}
 {% endblock %}

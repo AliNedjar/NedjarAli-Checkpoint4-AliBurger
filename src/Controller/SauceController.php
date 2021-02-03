@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class SauceController extends AbstractController
 {
     /**
-     * @Route("/", name="sauce_index", methods={"GET"})
+     * @Route("/", name="sauces", methods={"GET"})
      * @param SauceRepository $sauceRepository
      * @return Response
      */
@@ -28,69 +28,14 @@ class SauceController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="sauce_new", methods={"GET","POST"})
-     */
-    public function new(Request $request): Response
-    {
-        $sauce = new Sauce();
-        $form = $this->createForm(SauceType::class, $sauce);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($sauce);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('sauce_index');
-        }
-
-        return $this->render('sauce/new.html.twig', [
-            'sauce' => $sauce,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
      * @Route("/{id}", name="sauce_show", methods={"GET"})
+     * @param Sauce $sauce
+     * @return Response
      */
     public function show(Sauce $sauce): Response
     {
         return $this->render('sauce/show.html.twig', [
             'sauce' => $sauce,
         ]);
-    }
-
-    /**
-     * @Route("/{id}/edit", name="sauce_edit", methods={"GET","POST"})
-     */
-    public function edit(Request $request, Sauce $sauce): Response
-    {
-        $form = $this->createForm(SauceType::class, $sauce);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('sauce_index');
-        }
-
-        return $this->render('sauce/edit.html.twig', [
-            'sauce' => $sauce,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="sauce_delete", methods={"DELETE"})
-     */
-    public function delete(Request $request, Sauce $sauce): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$sauce->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($sauce);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('sauce_index');
     }
 }

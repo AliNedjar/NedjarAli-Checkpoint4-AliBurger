@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Create new Sauce</h1>
 
-    {{ include('sauce/_form.html.twig') }}
+    {{ include('admin/sauce/_form.html.twig') }}
 
-    <a href="{{ path('sauce_index') }}">back to list</a>
+    <a href="{{ path('admin_sauce_index') }}">back to list</a>
 {% endblock %}
