@@ -1,0 +1,27 @@
+<?php
+
+namespace App\Form;
+
+use App\Entity\Sauce;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+
+class SauceType extends AbstractType
+{
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder
+            ->add('Name')
+            ->add('Origin')
+            ->add('Ingredient')
+        ;
+    }
+
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults([
+            'data_class' => Sauce::class,
+        ]);
+    }
+}
