@@ -9,3 +9,11 @@ body {
     background-color: white;
     font-family: $font-title;
 }
+
+h1 {
+    padding: $spacing-4 0;
+}
+
+nav {
+    height: 90px;
+}
