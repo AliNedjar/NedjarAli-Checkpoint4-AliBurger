@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sauce index{% endblock %}
+
+{% block body %}
+    <h1>Sauce index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Origin</th>
+                <th>Ingredient</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sauce in sauces %}
+            <tr>
+                <td>{{ sauce.id }}</td>
+                <td>{{ sauce.Name }}</td>
+                <td>{{ sauce.Origin }}</td>
+                <td>{{ sauce.Ingredient }}</td>
+                <td>
+                    <a href="{{ path('sauce_show', {'id': sauce.id}) }}">show</a>
+                    <a href="{{ path('sauce_edit', {'id': sauce.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('sauce_new') }}">Create new</a>
+{% endblock %}
