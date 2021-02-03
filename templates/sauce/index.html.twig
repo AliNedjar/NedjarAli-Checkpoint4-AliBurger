@@ -1,0 +1,31 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Les sauces{% endblock %}
+
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('sauces') }}
+    {% endblock %}
+
+{% block body %}
+    <section class="saucesBackground">
+        <div class="sauceOverlay">
+            <h1 class="text-center">Nos Sauces</h1>
+            <div class=" container-fluid">
+            <div class="row justify-content-center">
+                {% for sauce in sauces %}
+                    <div class="justify-content-center col-12 col-sm-12 col-md-6 col-lg-2 pt-4">
+                        <a href="{{ path('sauce_show', { 'id' : sauce.id }) }}">
+                            <div class="linkCategory card text-white bg-light card-inverse">
+                                <img src="{{ asset('build/images/SauceSample.jpg') }}" class="fitness card-img" alt="">
+                                <div class="card-img-overlay d-flex">
+                                    <h3 class="card-title text-truncate align-self-center mx-auto text-secondary">{{sauce.name}}</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

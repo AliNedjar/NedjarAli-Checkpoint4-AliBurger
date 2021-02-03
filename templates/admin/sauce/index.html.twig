@@ -23,8 +23,8 @@
                 <td>{{ sauce.Origin }}</td>
                 <td>{{ sauce.Ingredient }}</td>
                 <td>
-                    <a href="{{ path('sauce_show', {'id': sauce.id}) }}">show</a>
-                    <a href="{{ path('sauce_edit', {'id': sauce.id}) }}">edit</a>
+                    <a href="{{ path('admin_sauce_show', {'id': sauce.id}) }}">show</a>
+                    <a href="{{ path('admin_sauce_edit', {'id': sauce.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -35,5 +35,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('sauce_new') }}">Create new</a>
+    <a href="{{ path('admin_sauce_new') }}">Create new</a>
 {% endblock %}

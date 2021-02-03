@@ -1,5 +1,6 @@
 @import 'variables.scss';
 @import "~bootstrap/scss/bootstrap";
+
 * {
 
 }
@@ -12,6 +13,7 @@ body {
 
 h1 {
     padding: $spacing-4 0;
+    color: $primary;
 }
 
 nav {
