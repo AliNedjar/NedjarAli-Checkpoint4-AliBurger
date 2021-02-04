@@ -1,9 +1,9 @@
-<div class="container text-center">
+<div class="container text-center col-12 col-md-4 col-lg-4">
     {% form_theme form 'bootstrap_4_layout.html.twig' %}
     {{ form_start(form) }}
     {{ form_widget(form) }}
     <div class="text-center">
-        <button class="btn btn-primary btn m-3">{{ button_label|default('Sauvegarder') }}</button>
+        <button class="btn btn-primary btn m-3">{{ button_label|default('Publier') }}</button>
     </div>
     {{ form_end(form) }}
 </div>
