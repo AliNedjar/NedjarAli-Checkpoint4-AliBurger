@@ -1,4 +1,7 @@
 {% block navBar %}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
     <nav class="navbar navbar-expand-xl navbar-light bg-light fixed-top">
         <div class="container-fluid ">
             <a class="navbar-brand img d-none d-lg-block text-light" href="{{ path('home_index') }}">
