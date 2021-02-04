@@ -7,9 +7,8 @@
             <a class="navbar-brand img d-none d-lg-block text-light" href="{{ path('home_index') }}">
                 <img class="logo mr-2" src="{{ asset('build/images/favicon.png') }}" alt="Logo"/></a>
             {% if app.user %}
-            <li class="nav-item mx-3">
-                <p class="nav-link text-primary">Bonjour, {{ app.user.surname }}</p>
-            </li>
+                <p class="nav-link text-primary">Bonjour, {{ app.user.username }}</p>
+
             {% endif %}
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
@@ -23,6 +22,9 @@
                     </li>
                     <li class="nav-item mx-3">
                         <a class="nav-link text-primary" href="{{ path('admin_sauce_index') }}">Administration Sauces</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link text-primary" href="{{ path('admin_comment_index') }}">Administration Commentaires</a>
                     </li>
                     <li class="nav-item mx-3">
                         <a class="nav-link text-primary" href="{{ path('home_index') }}">Accueil</a>

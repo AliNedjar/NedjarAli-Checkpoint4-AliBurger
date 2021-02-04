@@ -78,7 +78,7 @@ class AdminSauceController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('sauce_index');
+            return $this->redirectToRoute('admin_sauce_index');
         }
 
         return $this->render('admin/sauce/edit.html.twig', [
@@ -101,6 +101,6 @@ class AdminSauceController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('sauce_index');
+        return $this->redirectToRoute('admin_sauce_index');
     }
 }

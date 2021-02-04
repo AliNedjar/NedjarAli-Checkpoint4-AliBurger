@@ -5,9 +5,8 @@
 {% block body %}
     <h1>Edit Sauce</h1>
 
-    {{ include('sauce/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('admin_sauce_index') }}">back to list</a>
-
-    {{ include('admin/sauce/_delete_form.html.twig') }}
+    {{ include('sauce/_form.html.twig', {'button_label': 'Modifier'}) }}
+    <div class="text-center">
+        <a class="btn btn-secondary btn m-3" href="{{ path('admin_index') }}">Retour</a>
+    </div>
 {% endblock %}

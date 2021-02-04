@@ -6,10 +6,12 @@ use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
  */
 class User implements UserInterface
 {
@@ -36,10 +38,6 @@ class User implements UserInterface
      */
     private $password;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $surname;
 
     /**
      * @ORM\OneToMany(targetEntity=Sauce::class, mappedBy="owner")
@@ -135,17 +133,9 @@ class User implements UserInterface
         // $this->plainPassword = null;
     }
 
-    public function getSurname(): string
-    {
-        return (string) $this->surname;
-    }
 
-    public function setUsername(string $surname): self
-    {
-        $this->surname = $surname;
 
-        return $this;
-    }
+
 
     /**
      * @return Collection|Sauce[]
