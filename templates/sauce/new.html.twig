@@ -1,0 +1,9 @@
+{% extends 'layout.html.twig' %}
+{% block title %}ajouter commentaire% endblock %}
+{% block body %}
+    <h1>Create new Sauce</h1>
+
+    {{ include('sauce/_form.html.twig') }}
+
+    <a href="{{ path('sauces') }}">back to list</a>
+{% endblock %}

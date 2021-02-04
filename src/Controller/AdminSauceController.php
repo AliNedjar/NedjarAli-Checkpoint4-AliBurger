@@ -43,7 +43,7 @@ class AdminSauceController extends AbstractController
             $entityManager->persist($sauce);
             $entityManager->flush();
 
-            return $this->redirectToRoute('sauce_index');
+            return $this->redirectToRoute('admin_sauce_index');
         }
 
         return $this->render('admin/sauce/new.html.twig', [

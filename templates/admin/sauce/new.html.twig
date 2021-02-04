@@ -1,11 +1,14 @@
-{% extends 'base.html.twig' %}
+{% extends 'layoutAdmin.html.twig' %}
 
-{% block title %}New Sauce{% endblock %}
+{% block title %}Admin nouvelle sauce{% endblock %}
 
 {% block body %}
-    <h1>Create new Sauce</h1>
+    <h1 class="text-center mt-5">Créer une nouvelle sauce</h1>
 
     {{ include('admin/sauce/_form.html.twig') }}
 
-    <a href="{{ path('admin_sauce_index') }}">back to list</a>
+    <div class="text-center mt-4 mb-5">
+        <a class="btn btn-secondary" href="{{ path('admin_sauce_index') }}">Retour</a>
+    </div>
 {% endblock %}
+

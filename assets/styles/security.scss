@@ -1,0 +1,14 @@
+@import "app.scss";
+
+body {
+  background-color: $danger;
+}
+
+.securityBackground {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../images/burgerBackground.jpg");
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-top: 90px;
+}

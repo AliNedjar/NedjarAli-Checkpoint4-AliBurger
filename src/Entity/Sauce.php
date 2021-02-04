@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\SauceRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -31,6 +33,21 @@ class Sauce
      * @ORM\Column(type="text")
      */
     private $Ingredient;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="sauces")
+     */
+    private $owner;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="sauce")
+     */
+    private  $comments;
+
+    public function __construct()
+    {
+        $this->comments = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -69,6 +86,48 @@ class Sauce
     public function setIngredient(string $Ingredient): self
     {
         $this->Ingredient = $Ingredient;
+
+        return $this;
+    }
+
+    public function getOwner(): ?User
+    {
+        return $this->owner;
+    }
+
+    public function setOwner(?User $owner): self
+    {
+        $this->owner = $owner;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Comment[]
+     */
+    public function getComments(): Collection
+    {
+        return $this->comments;
+    }
+
+    public function addComment(Comment $comment): self
+    {
+        if (!$this->comments->contains($comment)) {
+            $this->comments[] = $comment;
+            $comment->setSauce($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comment $comment): self
+    {
+        if ($this->comments->removeElement($comment)) {
+            // set the owning side to null (unless already changed)
+            if ($comment->getSauce() === $this) {
+                $comment->setSauce(null);
+            }
+        }
 
         return $this;
     }

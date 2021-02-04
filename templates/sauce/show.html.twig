@@ -1,23 +1,54 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
 
 {% block title %}Sauce{% endblock %}
 
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('sauces') }}
+    {% endblock %}
+
 {% block body %}
-    <h1>Sauce {{ sauce.name }}</h1>
+    <section class="saucePageInfoBackground">
+    <h1 class="text-center">Sauce {{ sauce.name }}</h1>
+        <div class="container pb-5">
+        <table class="table text-primary text-center">
+            <thead class="thead-dark text-center">
+            <tr>
+                <th>Origine</th>
+                <th>Ingrédients</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ sauce.Origin }}</td>
+                    <td>{{ sauce.Ingredient }}</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        <div class="container justify-content-center text-center pt-5 pb-5">
+        <div class="row">
+    {% for comment in sauce.comments %}
+        <div class="card m-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">De :</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ comment.user.Surname }}</h6>
+                <p class="card-text">{{ comment.comment }}</p>
+                <p  class="card-text">Note :{{ comment.rate }}</p>
+        {% if app.user %}
+                {% if is_granted("ROLE_ADMIN") or app.user.email == comment.user.email %}
+                    {{ include('sauce/_delete_comment_form.html.twig') }}
+                {% endif %}
+        {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+        </div>
+        </div>
+    {% if app.user %}
+        <h3 class="text-center pb-4">Ajouter un commentaire</h3>
+        {{ include('sauce/_form.html.twig') }}
+    {% endif %}
 
-    <table class="table">
-        <tbody>
-        <tr>
-            <th>Origine</th>
-            <td>{{ sauce.Origin }}</td>
-        </tr>
-        <tr>
-            <th>Ingrédients</th>
-            <td>{{ sauce.Ingredient }}</td>
-        </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('sauces') }}">Retour à la liste</a>
-
+    <a href="{{ path('sauces') }}">Retour à la liste des sauces</a>
+    </section>
 {% endblock %}
